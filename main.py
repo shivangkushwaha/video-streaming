@@ -1,10 +1,12 @@
 from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
+import os
 
 app = FastAPI()
+current_working_directory = os.getcwd()
 
-VIDEO_FILE_PATH = 'path/to/your/video.mp4'
-
+VIDEO_FILE_PATH = current_working_directory+'\example.mp4'
+print('VIDEO_FILE_PATH',VIDEO_FILE_PATH)
 def stream_video(video_path: str):
     with open(video_path, 'rb') as video_file:
         while chunk := video_file.read(1024 * 1024):  # Read 1MB at a time
