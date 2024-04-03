@@ -1,2 +1,8 @@
-fastapi==0.78.0
-uvicorn==0.17.6
+fastapi
+uvicorn
+boto3
+python-multipart
+databases
+sqlalchemy
+asyncio
+python-dotenv
