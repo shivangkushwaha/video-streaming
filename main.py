@@ -44,8 +44,8 @@ async def create_upload_file(file: UploadFile = File(...)):
     try:
         s3_client.upload_fileobj(file.file, "your-bucket-name", file.filename)
         file_url = f"https://{s3_client.meta.endpoint_url}/your-bucket-name/{file.filename}"
-        query = files.insert().values(filename=file.filename, url=file_url)
-        await database.execute(query)
+        # query = files.insert().values(filename=file.filename, url=file_url)
+        # await database.execute(query)
         return {"message": f"Successfully uploaded {file.filename} to S3 and saved the location in the database."}
     except Exception as e:
         return {"error": str(e)}
